@@ -33,7 +33,7 @@ exports.run = async (client, message, args) => {
       .setFooter(`Efda Corpation©`);
 
     önerikanalı.send(embed).then(m => {
-      m.react("✔️");
+      m.react("☑️");
       m.react("❌");
     });
   }
