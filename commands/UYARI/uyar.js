@@ -31,7 +31,7 @@ db.add(`uyaricezapuani_${user.id}`, 10)
 db.push(`uyarisebep_${user.id}`, `**${message.author.username} => **` + sebep)
 message.guild.member(user).send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${message.guild.name} sunucusunda ${sebep} sebebiyle uyarıldınız! \n \n Yetkili: ${message.author}`))
 message.channel.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!`))
-kanal.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!`))
+kanal.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!  \n \`Kişinin Uyarı Sayısı \`${uyarı}\` `))
 };
 exports.conf = {
     aliases: ["uyarı"],
@@ -42,8 +42,3 @@ exports.help = {
     name: "uyar"
 };
 
-//db.push(`sebepler_${message.guild.id}`, sebep)
-
-  //let sebeps = db.fetch(`sebepler_${message.guild.id}`)
-
-//      message.channel.send(sebeps.join("\n"),{split:true})
