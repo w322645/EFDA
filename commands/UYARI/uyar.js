@@ -2,7 +2,10 @@ const Discord = require('discord.js');
 const db = require('quick.db');
 const qdb = require('quick.db');
 exports.run = async(client, message, args) => {
-
+  var kanal = await db.fetch(`uyarilog_${message.guild.id}`);
+  var kanal = message.guild.channels.cache.find(
+    channel => channel.id === kanal
+  )
   
     var e = db.fetch(`prefix_${message.guild.id}`)
     if(e){
@@ -24,8 +27,7 @@ db.add(`uyaricezapuani_${user.id}`, 10)
 db.push(`uyarisebep_${user.id}`, `**${message.author.username} => **` + sebep)
 message.guild.member(user).send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${message.guild.name} sunucusunda ${sebep} sebebiyle uyarıldınız! \n \n Yetkili: ${message.author}`))
 message.channel.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!`))
-var kanal = db.fetch(`uyarilog_${message.guild.id}`)
-  message.channel(kanal).send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!`))
+kanal.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!`))
 };
 exports.conf = {
     aliases: ["uyarı"],
