@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const db = require('quick.db');
 const qdb = require('quick.db');
 exports.run = async(client, message, args) => {
-  const data1 = db.table('data1')
+
   
     var e = db.fetch(`prefix_${message.guild.id}`)
     if(e){
@@ -11,7 +11,6 @@ exports.run = async(client, message, args) => {
     if(!e){
       var p = "?"
     }
-var log = data1.fetch(`uyarikanal?_${(message.guild.id)}`)
 
 var yetkili = db.fetch(`uyariyetkili_${message.guild.id}`)
 if(!yetkili) return message.channel.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`Uyarı yetkilisi rol'ü ayarlanmamış! \n\n**Ayarlamak İçin =** \`${p}uyarı-ayar yetkili @yetkili-rol\` `))
@@ -25,8 +24,8 @@ db.add(`uyaricezapuani_${user.id}`, 10)
 db.push(`uyarisebep_${user.id}`, `**${message.author.username} => **` + sebep)
 message.guild.member(user).send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${message.guild.name} sunucusunda ${sebep} sebebiyle uyarıldınız! \n \n Yetkili: ${message.author}`))
 message.channel.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!`))
-log.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!`))
-  
+var kanal = db.fetch(`uyarilog_${message.guild.id}`)
+  message.channel(kanal).send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!`))
 };
 exports.conf = {
     aliases: ["uyarı"],
