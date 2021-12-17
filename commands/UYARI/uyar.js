@@ -29,9 +29,9 @@ if(!sebep) return message.channel.send(new Discord.MessageEmbed().setColor('#363
 db.add(`uyarisicil_${user.id}`, 1)
 db.add(`uyaricezapuani_${user.id}`, 10)
 db.push(`uyarisebep_${user.id}`, `**${message.author.username} => **` + sebep)
-message.guild.member(user).send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${message.guild.name} sunucusunda ${sebep} sebebiyle uyarıldınız! \n \n Yetkili: ${message.author}`))
-message.channel.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!`))
-kanal.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!  \n \`Kişinin Uyarı Sayısı \`${uyarı}\` `))
+message.guild.member(user).send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${message.guild.name} sunucusunda ${sebep} sebebiyle uyarıldınız! \n  Uyarı Sayınız \`${uyarı}\` \n Yetkili: ${message.author}`))
+message.channel.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı! \n Kişinin Uyarı Sayısı \`${uyarı}\``))
+kanal.send(new Discord.MessageEmbed().setColor('#36393f').setDescription(`${user.username}, ${message.author} tarafından ${sebep} sebebiyle uyarıldı!  \n Kişinin Uyarı Sayısı \`${uyarı}\` `))
 };
 exports.conf = {
     aliases: ["uyarı"],
