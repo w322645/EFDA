@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const db = require('quick.db');
 const qdb = require('quick.db');
 exports.run = async(client, message, args) => {
+  var uyarı = db.fetch(`uyarisicil_${message.author.id}`)
+if(!uyarı){
+    var uyarı = "0"
+}
   var kanal = await db.fetch(`uyarilog_${message.guild.id}`);
   var kanal = message.guild.channels.cache.find(
     channel => channel.id === kanal
