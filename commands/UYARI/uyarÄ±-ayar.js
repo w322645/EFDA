@@ -1,7 +1,10 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
+
 exports.run = async(client, message, args) => {
-    var e = db.fetch(`prefix_${message.guild.id}`)
+const data1 = new db.table('data1')
+
+  var e = db.fetch(`prefix_${message.guild.id}`)
     if(e){
       var p = e
     }
