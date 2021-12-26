@@ -322,11 +322,11 @@ client.unload = command => {
   });
 };
 //REKLAM ENGEL
-client.on("message", msg => {
-  if(!msg.guild){
+client.on("message", message => {
+  if(!message.guild){
     return;
   };
-  if (!db.has(`reklam_${msg.guild.id}`)) return;
+  if (!db.has(`reklam_${message.guild.id}`)) return;
   const reklam = [
     ".com",
     ".net",
@@ -349,11 +349,11 @@ client.on("message", msg => {
     ".party",
     "discord.gg"
   ];
-  if (reklam.some(word => msg.content.includes(word))) {
+  if (reklam.some(word => message.content.includes(word))) {
     try {
-      if (!msg.member.hasPermission("BAN_MEMBERS")) {
-        msg.delete();
-        return msg
+      if (!message.member.hasPermission("BAN_MEMBERS")) {
+        message.delete();
+        return message
           .reply(
             "**Bu Sunucuda** `Reklam Engelle`** Aktif Reklam Yapmana İzin Vermem İzin Vermem ? !**"
           )
@@ -1029,5 +1029,6 @@ var hedef = qdb.fetch(`sayachedef_${member.guild.id}`)
 if(!hedef) return;
 client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor(cılı).setDescription(`<a:cks:885484594143567922> \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı, \`${hedef}\` Kullanıcıya \`${hedef - member.guild.memberCount}\` kişi kaldı!`))
 })
+
 
 client.login(process.env.sebastian);

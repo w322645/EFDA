@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
   }
   if (args[0] == 'kapat') {
         if(!db.has(`reklam_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setColor("#36393f").setTitle(`Sistem zaten kapalı.`))
-    db.delete(`reklam_${message.guild.id}`)
+    db.delete(`reklam88_${message.guild.id}`)
       message.channel.send(new Discord.MessageEmbed().setColor("#36393f").setTitle('Reklam Engel başarıyla kapatıldı! Artık herkes reklam yapabilir.'))
   }
  

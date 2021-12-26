@@ -39,7 +39,7 @@
     "figlet": "^1.5.0",
     "request-promise-native": "^1.0.9",
     "steam-provider": "^0.2.0",
-    "tcmb-doviz": "^1.0.6",
+    "tcmb-doviz": "^1.1.2",
     "discord.js-minesweeper": "^1.0.6",
     "os": "^0.1.1",
     "cpu-stat": "^2.0.1",
