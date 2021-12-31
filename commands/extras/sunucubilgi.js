@@ -14,26 +14,26 @@ function checkDays(date) {
         let humanCount = serverSize - botCount;
         let verifLevels = ["Ayarlar Kısmından Bakmanız Daha Sağlıklı Olucaktır"];
 	let region = {
-			"us-central": "Amerika :flag_us:" || "Bölgesi Otomatik",
-			"us-east": "Doğu Amerika :flag_us:"|| "Bölgesi Otomatik",
-			"us-south": "Güney Amerika :flag_us:"|| "Bölgesi Otomatik",
-			"us-west": "Batı Amerika :flag_us:"|| "Bölgesi Otomatik",
-			"eu-west": "Batı Avrupa :flag_eu:"|| "Bölgesi Otomatik",
-			"eu-central": "Avrupa :flag_eu:"|| "Bölgesi Otomatik",
-			"singapore": "Singapur :flag_sg:"|| "Bölgesi Otomatik",
-			"london": "Londra :flag_gb:"|| "Bölgesi Otomatik",
-			"japan": "Japonya :flag_jp:"|| "Bölgesi Otomatik",
-			"russia": "Rusya :flag_ru:"|| "Bölgesi Otomatik",
-			"hongkong": "Hong Kong :flag_hk:"|| "Bölgesi Otomatik",
-			"brazil": "Brezilya :flag_br:"|| "Bölgesi Otomatik",
-			"singapore": "Singapur :flag_sg:"|| "Bölgesi Otomatik",
-			"sydney": "Sidney :flag_au:"|| "Bölgesi Otomatik",
-			"southafrica": "Güney Afrika :flag_za:"|| "Bölgesi Otomatik",
-    "amsterdam": "Hollanda :flag_nl:"|| "Bölgesi Otomatik",
-				"europe": "Avrupa :flag_eu:"|| "Bölgesi Otomatik"
+			"us-central": "Amerika :flag_us:",
+			"us-east": "Doğu Amerika :flag_us:",
+			"us-south": "Güney Amerika :flag_us:",
+			"us-west": "Batı Amerika :flag_us:",
+			"eu-west": "Batı Avrupa :flag_eu:",
+			"eu-central": "Avrupa :flag_eu:",
+			"singapore": "Singapur :flag_sg:",
+			"london": "Londra :flag_gb:",
+			"japan": "Japonya :flag_jp:",
+			"russia": "Rusya :flag_ru:",
+			"hongkong": "Hong Kong :flag_hk:",
+			"brazil": "Brezilya :flag_br:",
+			"singapore": "Singapur :flag_sg:",
+			"sydney": "Sidney :flag_au:",
+			"southafrica": "Güney Afrika :flag_za:",
+    "amsterdam": "Hollanda :flag_nl:",
+				"europe": "Avrupa :flag_eu:"
 
 	}
-  var Bölge = region || "Bölge Yok"
+
 
 	
 			const yukleniyor = await msg.channel.send(`Sunucu Bilgileri Araştırılıyor Ve Veriler Analiz Ediliyor`);
@@ -41,7 +41,7 @@ function checkDays(date) {
 let sunucu = new Discord.MessageEmbed()
 .setAuthor('Sunucu Bilgisi', msg.guild.iconURL())
 .setThumbnail(msg.guild.iconURL())
-.addField('👑 Sunucu Bilgileri 👑', `**Sunucu İsmi:** ${guild.name} \n**Sunucu ID:** \`${msg.guild.id}\` \n**Sunucu Sahibi:** ${guild.owner} \n**Bulunduğu Bölge:** ${Bölge[msg.guild.region]} \n**Kuruluş Tarihi:** \`${checkDays(msg.guild.createdAt)}\` \n **Discord Verify Levels:** \`${verifLevels}\`
+.addField('👑 Sunucu Bilgileri 👑', `**Sunucu İsmi:** ${guild.name} \n**Sunucu ID:** \`${msg.guild.id}\` \n**Sunucu Sahibi:** ${guild.owner}\n**Kuruluş Tarihi:** \`${checkDays(msg.guild.createdAt)}\` \n **Discord Verify Levels:** \`${verifLevels}\`
 `)
 .addField(`👤 Üye Bilgileri 👤 `, `**Toplam Üye:** \`${humanCount}\` \n**Toplam Bot:** \`${botCount}\` \n**Rol Sayısı:** \`${guild.roles.cache.size}\``)
 .addField(`🌏 Kanallar 🌏`, ` **Yazı:** \`${msg.guild.channels.cache.filter(c => c.type === 'text').size}\` \n **Sesli:** \`${msg.guild.channels.cache.filter(c => c.type === 'voice').size}\` \n **Kategori:** \`${msg.guild.channels.cache.filter(c => c.type === 'category').size}\``)
