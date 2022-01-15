@@ -10,6 +10,8 @@ let tarih = new Date().toLocaleString("tr-TR", { timeZone: "Asia/Istanbul" });
 const db = require("quick.db");
 const moment = require("moment");
 const Canvas = require('canvas')
+const disbut = require('discord-buttons')
+disbut(client);
 /////TABLES
 var commandtable = new AsciiTable("EFDA BOT KOMUT MASASI");
 ////
@@ -1029,6 +1031,34 @@ var hedef = qdb.fetch(`sayachedef_${member.guild.id}`)
 if(!hedef) return;
 client.channels.cache.get(kanal).send(new Discord.MessageEmbed().setColor(cılı).setDescription(`<a:cks:885484594143567922> \`${member.user.tag}\` adlı kullanıcı sunucudan ayrıldı, \`${hedef}\` Kullanıcıya \`${hedef - member.guild.memberCount}\` kişi kaldı!`))
 })
-
+client.on('message', async (message) => {
+    if (message.content.startsWith('!yardım')) {
+      let button = new disbut.MessageButton()
+      .setStyle('green')
+      .setLabel('Buraya Tıkla')
+      .setID('Buraya Tıkla')
+      let button2 = new disbut.MessageButton()
+      .setStyle('url')
+      .setLabel('Buraya Tıkla')
+      .setURL('http://oyuncularsehri.com')
+      let button3 = new disbut.MessageButton()
+      .setStyle('red')
+      .setLabel('Buraya Tıkla')
+      .setID('Buraya Tıkla')
+      message.channel.send("Oyuncular Şehri forum linkini görmek için;",{buttons:[button,button2,button3]});
+      client.ws.on('INTERACTION_CREATE', async interaction => {
+         
+          client.api.interactions(interaction.id, interaction.token).callback.post({
+              data: {
+                  type: 4,
+                  data: {
+                      content: "http://oyuncularsehri.com/", // Yardım Menüsü Buraya Gelecek
+                      flags: "64" // Bunu Ellemeyin
+                    }
+                }
+            })
+       });
+    }
+});
 
 client.login(process.env.sebastian);
